@@ -1,4 +1,4 @@
-PROJECT=action-docker-service
+PROJECT=action-make-docker
 DOCKER_USER=simonvadee
 DOCKER_IMAGE=$(DOCKER_USER)/$(PROJECT)
 

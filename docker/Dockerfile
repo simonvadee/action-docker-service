@@ -1,10 +1,10 @@
 FROM debian:stable-slim
 
-LABEL "name"="make"
+LABEL "name"="make-docker"
 LABEL "maintainer"="Simon Vadée <simon.vadee@gmail.com>"
 LABEL "version"="0.0.1"
 
-LABEL "com.github.actions.name"="Build docker images"
+LABEL "com.github.actions.name"="Build docker images using Makefile"
 LABEL "com.github.actions.icon"="terminal"
 LABEL "com.github.actions.color"="gray-dark"
 
@@ -30,6 +30,8 @@ RUN add-apt-repository \
     && apt-get install --no-install-recommends -y \
     docker-ce \
     docker-ce-cli \
-    containerd.io
+    containerd.io \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 ENTRYPOINT ["make"]
